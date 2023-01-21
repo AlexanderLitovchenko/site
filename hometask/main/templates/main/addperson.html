@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block title %} 
+    {{title}}
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <center>
+        <table>
+            {{ form.as_table}}
+        </table>
+    <button type="submit" class="btn btn-success">Добавить</button>
+    </center>
+    <br>
+<center><h5> Заполните поля и нажмите добавить, после чего человек будет доступен в кампании</h5></center>
+</form>
+
+
+{% endblock %}
+
