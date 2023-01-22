@@ -29,6 +29,25 @@ def register_page(request):
 		context = {'form' : form}
 	return render(request, 'users/register_page.html', context)
 
+def register(request):
+	if request.user.is_authenticated:
+		return redirect('home')
+	else:
+		form = CreateUserForm()
+	
+		if request.method == 'POST':
+			form = CreateUserForm(request.POST)
+			if form.is_valid():
+				form.save()
+				userfn = form.cleaned_data.get('first_name')
+				userln = form.cleaned_data.get('last_name')
+				messages.success(request, 'Учетная запись была создана для ' + userfn, userln)
+				return redirect('login')
+			else:
+				messages.error(request, 'Что-то пошло не так')
+		context = {'form' : form}
+	return render(request, 'users/register.html', context)
+
 def login_page(request):
 	if request.user.is_authenticated:
 		return redirect('home')
