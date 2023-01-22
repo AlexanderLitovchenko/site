@@ -131,7 +131,11 @@
 				   		</div>
 					</form>
 				</div>
-		
+				{% if messages %}
+					{% for message in messages %}
+						<p id="messages">{{message}} попробуйте зарегистрироваться <a href="{% url 'register_page' %}">здесь</a>  </p>
+					{% endfor %}
+				{%endif%}
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
 						Уже есть аккаунт? <a href="{% url 'login' %}" class="ml-2">Войти</a>
