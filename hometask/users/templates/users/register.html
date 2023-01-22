@@ -1,0 +1,21 @@
+
+{% block title %} 
+    <title>Регистрация</title>
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <center>
+        <table>
+            {{ form.as_p}}
+        </table>
+    <button type="submit" class="btn btn-success">Зарегистрироваться</button>
+    </center>
+</form>
+
+
+{% endblock %}
