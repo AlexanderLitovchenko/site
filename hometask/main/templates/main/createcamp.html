@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block title %} 
+    {{title}}
+{% endblock %}
+
+
+{% block content %}
+<br>
+<br>
+
+<center>
+<p><em>Введите название кампании, выберите адрес и человека и нажмите добавить, после чего Ваша кампания появится в списке всех кампаний</em></p></center>
+<br>
+<form method="POST" action="">
+    {% csrf_token %}
+    <center>
+        <table>
+            {{ form.as_table}}
+        </table>
+       <br>
+       <br>
+    <button type="submit" class="btn btn-success">Создать</button>
+    </center>
+    <br>
+
+</form>
+
+</center>
+{% endblock %}
